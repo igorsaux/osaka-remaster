@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" script_class="LambertMaterial" format=3 uid="uid://det4lgidt40w5"]
+
+[ext_resource type="Script" uid="uid://bwgxdliipn25x" path="res://scripts/lamber_material.gd" id="1_sd05d"]
+[ext_resource type="Shader" uid="uid://ds1cfg82bac53" path="res://shaders/lambert.gdshader" id="2_xcvoy"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("2_xcvoy")
+shader_parameter/albedo_color = Color(0.22872052, 0.18231446, 0.18581405, 1)
+shader_parameter/mirror_x = false
+shader_parameter/mirror_y = false
+shader_parameter/use_alpha_scissor = false
+shader_parameter/alpha_scissor_threshold = 0.5
+script = ExtResource("1_sd05d")
+albedo_color = Color(0.22872052, 0.18231446, 0.18581405, 1)
+metadata/_custom_type_script = "uid://bwgxdliipn25x"

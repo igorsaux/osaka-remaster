@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" script_class="LambertMaterial" format=3 uid="uid://bc8rhuhsdtn2q"]
+
+[ext_resource type="Texture2D" uid="uid://c5hxt7tq5rs81" path="res://textures/wood_casing.tga" id="1_cltgw"]
+[ext_resource type="Script" uid="uid://bwgxdliipn25x" path="res://scripts/lamber_material.gd" id="1_uoa81"]
+[ext_resource type="Shader" uid="uid://ds1cfg82bac53" path="res://shaders/lambert.gdshader" id="2_cltgw"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("2_cltgw")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/albedo_texture = ExtResource("1_cltgw")
+shader_parameter/mirror_x = false
+shader_parameter/mirror_y = false
+shader_parameter/use_alpha_scissor = false
+shader_parameter/alpha_scissor_threshold = 0.5
+script = ExtResource("1_uoa81")
+albedo_texture = ExtResource("1_cltgw")
+metadata/_custom_type_script = "uid://bwgxdliipn25x"

@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" script_class="LambertMaterial" format=3 uid="uid://xk2ceep028yt"]
+
+[ext_resource type="Texture2D" uid="uid://blxjh4yvryhib" path="res://textures/door.tga" id="1_2rg2m"]
+[ext_resource type="Script" uid="uid://bwgxdliipn25x" path="res://scripts/lamber_material.gd" id="1_241lo"]
+[ext_resource type="Shader" uid="uid://ds1cfg82bac53" path="res://shaders/lambert.gdshader" id="2_2rg2m"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("2_2rg2m")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/albedo_texture = ExtResource("1_2rg2m")
+shader_parameter/mirror_x = false
+shader_parameter/mirror_y = false
+shader_parameter/use_alpha_scissor = false
+shader_parameter/alpha_scissor_threshold = 0.5
+script = ExtResource("1_241lo")
+albedo_texture = ExtResource("1_2rg2m")
+metadata/_custom_type_script = "uid://bwgxdliipn25x"

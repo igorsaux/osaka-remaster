@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://0cq65fhijxw3"]
+
+[ext_resource type="ArrayMesh" uid="uid://cre4klr4koebd" path="res://meshes/home_structure.obj" id="1_krot7"]
+[ext_resource type="Material" uid="uid://dyouyndk28lhg" path="res://materials/floor.tres" id="1_u4wd2"]
+[ext_resource type="Material" uid="uid://bc8rhuhsdtn2q" path="res://materials/wood_casing.tres" id="2_uhids"]
+[ext_resource type="Material" uid="uid://bremb0de164t" path="res://materials/wall_ornament.tres" id="3_reixx"]
+[ext_resource type="Material" uid="uid://cs1bin47xpjin" path="res://materials/wall_lower.tres" id="3_w18ys"]
+[ext_resource type="Material" uid="uid://det4lgidt40w5" path="res://materials/backface.tres" id="3_yxilm"]
+[ext_resource type="Material" uid="uid://dibh5ip4gdnt5" path="res://materials/cornice.tres" id="7_mahjx"]
+[ext_resource type="ArrayMesh" uid="uid://dg6idsqrwenpl" path="res://meshes/windows.obj" id="8_4fycn"]
+[ext_resource type="Material" uid="uid://dxl0ykwxd8eah" path="res://materials/window_frame.tres" id="9_vc333"]
+[ext_resource type="ArrayMesh" uid="uid://b7caqtkeqkseh" path="res://meshes/door_frame.obj" id="10_hhep5"]
+[ext_resource type="Material" uid="uid://xk2ceep028yt" path="res://materials/door.tres" id="11_cmjdo"]
+[ext_resource type="ArrayMesh" uid="uid://ga1rkl21dvrw" path="res://meshes/door.obj" id="12_yu5fn"]
+
+[sub_resource type="Environment" id="Environment_u4wd2"]
+ambient_light_source = 2
+ambient_light_color = Color(0.8951319, 0.8515068, 0.7904225, 1)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_u4wd2"]
+
+[sub_resource type="Compositor" id="Compositor_w18ys"]
+
+[node name="Node3D" type="Node3D" unique_id=481760162]
+
+[node name="HomeStructure" type="MeshInstance3D" parent="." unique_id=307013315]
+mesh = ExtResource("1_krot7")
+surface_material_override/0 = ExtResource("2_uhids")
+surface_material_override/1 = ExtResource("3_yxilm")
+surface_material_override/2 = ExtResource("3_yxilm")
+surface_material_override/3 = ExtResource("1_u4wd2")
+surface_material_override/4 = ExtResource("3_reixx")
+surface_material_override/5 = ExtResource("3_w18ys")
+surface_material_override/6 = ExtResource("7_mahjx")
+
+[node name="Windows" type="MeshInstance3D" parent="." unique_id=1199586955]
+mesh = ExtResource("8_4fycn")
+surface_material_override/0 = ExtResource("3_reixx")
+surface_material_override/1 = ExtResource("9_vc333")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1689700564]
+environment = SubResource("Environment_u4wd2")
+camera_attributes = SubResource("CameraAttributesPractical_u4wd2")
+compositor = SubResource("Compositor_w18ys")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=584646189]
+transform = Transform3D(0.7071068, -0.2716353, 0.6528509, 0, 0.9232706, 0.38415033, -0.7071068, -0.2716353, 0.6528509, 6.982047, 3.743085, 7.048406)
+fov = 45.0
+
+[node name="DoorFrame" type="MeshInstance3D" parent="." unique_id=821640086]
+mesh = ExtResource("10_hhep5")
+surface_material_override/0 = ExtResource("11_cmjdo")
+
+[node name="Door" type="MeshInstance3D" parent="." unique_id=166961703]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4937221, 0, 3.5854144)
+mesh = ExtResource("12_yu5fn")
+surface_material_override/0 = ExtResource("11_cmjdo")
+surface_material_override/1 = ExtResource("11_cmjdo")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1022416307]
+transform = Transform3D(0.4218747, 0, -0.9066542, 0, 1, 0, 0.9066542, 0, 0.4218747, 0, 3.6036963, 0)
+shadow_reverse_cull_face = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=964339762]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.4, 2.9669042, 0.4660933)
+light_energy = 0.5
+shadow_enabled = true
+spot_angle = 53.620853
