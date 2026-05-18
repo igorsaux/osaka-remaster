@@ -1,3 +1,6 @@
+// Copyright (C) 2026 Igor Spichkin
+// SPDX-License-Identifier: MPL-2.0
+
 shader_type spatial;
 
 render_mode blend_mix, specular_disabled, cull_disabled;
