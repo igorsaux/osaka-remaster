@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" script_class="LambertMaterial" format=3 uid="uid://d4mkvsv7yi44l"]
+
+[ext_resource type="Script" uid="uid://bwgxdliipn25x" path="res://scripts/lamber_material.gd" id="1_6ky61"]
+[ext_resource type="Texture2D" uid="uid://cfdmf1xkocdhe" path="res://textures/desk.tga" id="1_cls0x"]
+[ext_resource type="Shader" uid="uid://ds1cfg82bac53" path="res://shaders/lambert.gdshader" id="2_cls0x"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("2_cls0x")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/albedo_texture = ExtResource("1_cls0x")
+shader_parameter/mirror_x = false
+shader_parameter/mirror_y = false
+shader_parameter/use_alpha_scissor = false
+shader_parameter/alpha_scissor_threshold = 0.5
+script = ExtResource("1_6ky61")
+albedo_texture = ExtResource("1_cls0x")
+metadata/_custom_type_script = "uid://bwgxdliipn25x"

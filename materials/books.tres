@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" script_class="LambertMaterial" format=3 uid="uid://boxln0awtcb2o"]
+
+[ext_resource type="Texture2D" uid="uid://bhsukeu0gfkam" path="res://textures/books.tga" id="1_1t2he"]
+[ext_resource type="Script" uid="uid://bwgxdliipn25x" path="res://scripts/lamber_material.gd" id="1_34es0"]
+[ext_resource type="Shader" uid="uid://ds1cfg82bac53" path="res://shaders/lambert.gdshader" id="2_1t2he"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("2_1t2he")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/albedo_texture = ExtResource("1_1t2he")
+shader_parameter/mirror_x = false
+shader_parameter/mirror_y = false
+shader_parameter/use_alpha_scissor = false
+shader_parameter/alpha_scissor_threshold = 0.5
+script = ExtResource("1_34es0")
+albedo_texture = ExtResource("1_1t2he")
+metadata/_custom_type_script = "uid://bwgxdliipn25x"

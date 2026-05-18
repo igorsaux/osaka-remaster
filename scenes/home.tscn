@@ -12,6 +12,12 @@
 [ext_resource type="ArrayMesh" uid="uid://b7caqtkeqkseh" path="res://meshes/door_frame.obj" id="10_hhep5"]
 [ext_resource type="Material" uid="uid://xk2ceep028yt" path="res://materials/door.tres" id="11_cmjdo"]
 [ext_resource type="ArrayMesh" uid="uid://ga1rkl21dvrw" path="res://meshes/door.obj" id="12_yu5fn"]
+[ext_resource type="ArrayMesh" uid="uid://cixjboltvg3f8" path="res://meshes/decoration.obj" id="13_ip4d6"]
+[ext_resource type="ArrayMesh" uid="uid://cuub6nfnqjmy3" path="res://meshes/desk.obj" id="14_gi00y"]
+[ext_resource type="Material" uid="uid://dy3eqkg7fqft2" path="res://materials/book_panels.tres" id="15_aish6"]
+[ext_resource type="Material" uid="uid://boxln0awtcb2o" path="res://materials/books.tres" id="15_rpgsi"]
+[ext_resource type="Material" uid="uid://d4mkvsv7yi44l" path="res://materials/desk.tres" id="16_ju5sp"]
+[ext_resource type="Material" uid="uid://blpojygpfjv2o" path="res://materials/desk_legs.tres" id="17_o7pnx"]
 
 [sub_resource type="Environment" id="Environment_u4wd2"]
 ambient_light_source = 2
@@ -23,21 +29,6 @@ ambient_light_color = Color(0.8951319, 0.8515068, 0.7904225, 1)
 
 [node name="Node3D" type="Node3D" unique_id=481760162]
 
-[node name="HomeStructure" type="MeshInstance3D" parent="." unique_id=307013315]
-mesh = ExtResource("1_krot7")
-surface_material_override/0 = ExtResource("2_uhids")
-surface_material_override/1 = ExtResource("3_yxilm")
-surface_material_override/2 = ExtResource("3_yxilm")
-surface_material_override/3 = ExtResource("1_u4wd2")
-surface_material_override/4 = ExtResource("3_reixx")
-surface_material_override/5 = ExtResource("3_w18ys")
-surface_material_override/6 = ExtResource("7_mahjx")
-
-[node name="Windows" type="MeshInstance3D" parent="." unique_id=1199586955]
-mesh = ExtResource("8_4fycn")
-surface_material_override/0 = ExtResource("3_reixx")
-surface_material_override/1 = ExtResource("9_vc333")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1689700564]
 environment = SubResource("Environment_u4wd2")
 camera_attributes = SubResource("CameraAttributesPractical_u4wd2")
@@ -46,16 +37,6 @@ compositor = SubResource("Compositor_w18ys")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=584646189]
 transform = Transform3D(0.7071068, -0.2716353, 0.6528509, 0, 0.9232706, 0.38415033, -0.7071068, -0.2716353, 0.6528509, 6.982047, 3.743085, 7.048406)
 fov = 45.0
-
-[node name="DoorFrame" type="MeshInstance3D" parent="." unique_id=821640086]
-mesh = ExtResource("10_hhep5")
-surface_material_override/0 = ExtResource("11_cmjdo")
-
-[node name="Door" type="MeshInstance3D" parent="." unique_id=166961703]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4937221, 0, 3.5854144)
-mesh = ExtResource("12_yu5fn")
-surface_material_override/0 = ExtResource("11_cmjdo")
-surface_material_override/1 = ExtResource("11_cmjdo")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1022416307]
 transform = Transform3D(0.4218747, 0, -0.9066542, 0, 1, 0, 0.9066542, 0, 0.4218747, 0, 3.6036963, 0)
@@ -66,3 +47,41 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.4,
 light_energy = 0.5
 shadow_enabled = true
 spot_angle = 53.620853
+
+[node name="Home" type="Node3D" parent="." unique_id=1974447274]
+
+[node name="Decoration" type="MeshInstance3D" parent="Home" unique_id=577031978]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012047529, 0, 0.24835825)
+mesh = ExtResource("13_ip4d6")
+
+[node name="Desk" type="MeshInstance3D" parent="Home" unique_id=2129377017]
+mesh = ExtResource("14_gi00y")
+surface_material_override/0 = ExtResource("15_aish6")
+surface_material_override/1 = ExtResource("15_rpgsi")
+surface_material_override/3 = ExtResource("16_ju5sp")
+surface_material_override/4 = ExtResource("17_o7pnx")
+
+[node name="DoorFrame" type="MeshInstance3D" parent="Home" unique_id=821640086]
+mesh = ExtResource("10_hhep5")
+surface_material_override/0 = ExtResource("11_cmjdo")
+
+[node name="Door" type="MeshInstance3D" parent="Home" unique_id=166961703]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4937221, 0, 3.5854144)
+mesh = ExtResource("12_yu5fn")
+surface_material_override/0 = ExtResource("11_cmjdo")
+surface_material_override/1 = ExtResource("11_cmjdo")
+
+[node name="HomeStructure" type="MeshInstance3D" parent="Home" unique_id=307013315]
+mesh = ExtResource("1_krot7")
+surface_material_override/0 = ExtResource("2_uhids")
+surface_material_override/1 = ExtResource("3_yxilm")
+surface_material_override/2 = ExtResource("3_yxilm")
+surface_material_override/3 = ExtResource("1_u4wd2")
+surface_material_override/4 = ExtResource("3_reixx")
+surface_material_override/5 = ExtResource("3_w18ys")
+surface_material_override/6 = ExtResource("7_mahjx")
+
+[node name="Windows" type="MeshInstance3D" parent="Home" unique_id=1199586955]
+mesh = ExtResource("8_4fycn")
+surface_material_override/0 = ExtResource("3_reixx")
+surface_material_override/1 = ExtResource("9_vc333")
