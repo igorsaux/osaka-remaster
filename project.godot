@@ -10,10 +10,14 @@ config_version=5
 
 [application]
 
-config/name="OsakaRemaster"
+config/name="Kasuga Ayumu no Tsuhan Seikatsu Remake"
 run/main_scene="uid://0cq65fhijxw3"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [physics]
 
