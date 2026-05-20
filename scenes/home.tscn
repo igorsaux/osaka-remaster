@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://0cq65fhijxw3"]
 
 [ext_resource type="ArrayMesh" uid="uid://cre4klr4koebd" path="res://meshes/home_structure.obj" id="1_krot7"]
+[ext_resource type="Script" uid="uid://cdsvvqo8hpele" path="res://scripts/camera.gd" id="1_snnha"]
 [ext_resource type="Material" uid="uid://dyouyndk28lhg" path="res://materials/floor.tres" id="1_u4wd2"]
 [ext_resource type="Material" uid="uid://bc8rhuhsdtn2q" path="res://materials/wood_casing.tres" id="2_uhids"]
 [ext_resource type="Material" uid="uid://bremb0de164t" path="res://materials/wall_ornament.tres" id="3_reixx"]
@@ -34,9 +35,17 @@ environment = SubResource("Environment_u4wd2")
 camera_attributes = SubResource("CameraAttributesPractical_u4wd2")
 compositor = SubResource("Compositor_w18ys")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=584646189]
-transform = Transform3D(0.7071068, -0.2716353, 0.6528509, 0, 0.9232706, 0.38415033, -0.7071068, -0.2716353, 0.6528509, 6.982047, 3.743085, 7.048406)
+[node name="FixedOrbitCamera" type="Camera3D" parent="." unique_id=1031315942]
+transform = Transform3D(0.70710677, -0.2717378, 0.6528082, 0, 0.9232102, 0.3842953, -0.70710677, -0.2717378, 0.6528082, 6.982, 3.743, 7.048)
+current = true
 fov = 45.0
+script = ExtResource("1_snnha")
+x_rot_min = -40.0
+x_rot_max = -5.0
+y_rot_min = 20.0
+y_rot_max = 70.0
+fov_max = 45.0
+metadata/_custom_type_script = "uid://cdsvvqo8hpele"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1022416307]
 transform = Transform3D(0.4218747, 0, -0.9066542, 0, 1, 0, 0.9066542, 0, 0.4218747, 0, 3.6036963, 0)
