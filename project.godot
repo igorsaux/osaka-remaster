@@ -15,8 +15,15 @@ run/main_scene="uid://0cq65fhijxw3"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameInputs="*uid://c6i6sr1b74s8t"
+SettingsManager="*uid://bb6tv44t252i4"
+
 [display]
 
+window/size/viewport_width=800
+window/size/viewport_height=600
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
 
