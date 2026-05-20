@@ -25,7 +25,6 @@ SettingsManager="*uid://bb6tv44t252i4"
 window/size/viewport_width=800
 window/size/viewport_height=600
 window/stretch/mode="canvas_items"
-window/stretch/aspect="ignore"
 
 [input]
 
