@@ -25,6 +25,10 @@ class_name FixedOrbitCamera
 @export var pad_v_sens: float = 25.0
 @export var pad_zoom_speed: float = 50.0
 
+@export_group("Trackpad Sensitivity")
+@export var trackpad_pinch_sens: float = 5.0
+@export var trackpad_scroll_sens: float = 0.5
+
 @export_group("Zoom Smoothing")
 @export var zoom_smoothness: float = 10.0
 
@@ -49,12 +53,28 @@ func _unhandled_input(event: InputEvent) -> void:
 		_target_fov += mouse_zoom_speed
 		_target_fov = clampf(_target_fov, fov_min, fov_max)
 
+	if event is InputEventMagnifyGesture:
+		var zoom_delta = (event.factor - 1.0) * trackpad_pinch_sens
+
+		_target_fov -= zoom_delta
+		_target_fov = clampf(_target_fov, fov_min, fov_max)
+
+	if event is InputEventPanGesture:
+		var scroll_delta = event.delta.y * trackpad_scroll_sens
+
+		if SettingsManager.invert_trackpad_zoom:
+			_target_fov += scroll_delta
+		else:
+			_target_fov -= scroll_delta
+
+		_target_fov = clampf(_target_fov, fov_min, fov_max)
+
 	if event is InputEventMouseMotion:
 		if Input.is_action_pressed(GameInputs.CAM_ROTATE_HOLD):
 			var zoom_compensation = fov / fov_max
 			var delta_y = event.relative.x * mouse_h_sens * zoom_compensation
 			var delta_x = event.relative.y * mouse_v_sens * zoom_compensation
-			
+
 			if SettingsManager.invert_mouse_rotation:
 				_curr_y += delta_y
 				_curr_x += delta_x
@@ -70,7 +90,7 @@ func _process(delta: float) -> void:
 
 	var pad_x = Input.get_axis(GameInputs.CAM_ROT_LEFT, GameInputs.CAM_ROT_RIGHT)
 	var pad_y = Input.get_axis(GameInputs.CAM_ROT_UP, GameInputs.CAM_ROT_DOWN)
-	
+
 	if pad_x != 0.0 or pad_y != 0.0:
 		var zoom_compensation = fov / fov_max
 
@@ -87,5 +107,5 @@ func _process(delta: float) -> void:
 func _apply_rotation_limits() -> void:
 	_curr_x = clampf(_curr_x, x_rot_min, x_rot_max)
 	_curr_y = clampf(_curr_y, y_rot_min, y_rot_max)
-	
+
 	rotation_degrees = Vector3(_curr_x, _curr_y, rotation_degrees.z)

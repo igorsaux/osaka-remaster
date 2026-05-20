@@ -7,6 +7,7 @@ const SETTINGS_FILE := "user://settings.cfg"
 const INPUT_SECTION := "input"
 
 var invert_mouse_rotation: bool = true
+var invert_trackpad_zoom: bool = true
 
 func _ready() -> void:
 	load_settings()
