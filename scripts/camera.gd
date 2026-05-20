@@ -52,9 +52,16 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if Input.is_action_pressed(GameInputs.CAM_ROTATE_HOLD):
 			var zoom_compensation = fov / fov_max
+			var delta_y = event.relative.x * mouse_h_sens * zoom_compensation
+			var delta_x = event.relative.y * mouse_v_sens * zoom_compensation
 			
-			_curr_y -= event.relative.x * mouse_h_sens * zoom_compensation
-			_curr_x -= event.relative.y * mouse_v_sens * zoom_compensation
+			if SettingsManager.invert_mouse_rotation:
+				_curr_y += delta_y
+				_curr_x += delta_x
+			else:
+				_curr_y -= delta_y
+				_curr_x -= delta_x
+
 			_apply_rotation_limits()
 
 func _process(delta: float) -> void:
@@ -66,7 +73,7 @@ func _process(delta: float) -> void:
 	
 	if pad_x != 0.0 or pad_y != 0.0:
 		var zoom_compensation = fov / fov_max
-		
+
 		_curr_y -= pad_x * pad_h_sens * delta * zoom_compensation
 		_curr_x -= pad_y * pad_v_sens * delta * zoom_compensation
 		_apply_rotation_limits()
